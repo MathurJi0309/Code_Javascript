@@ -1,0 +1,54 @@
+class CoffeeShop{
+    constructor(){
+        //add all the product in the form of the object and here is choose the baseprice for th eexpress which is 45 and 55 for cappuccino and 65 for the latte
+        this.products={
+            expresso:{
+                basePrice :45,
+                addOn:{
+                    milk:60,
+                    cream:75,
+                    latte:100
+                }
+            },
+            cappuccino:{
+                basePrice :55,
+                addOn:{
+                    milk:80,
+                    cream:90,
+                    latte:125
+                }
+            },
+            latte:{
+                basePrice:65,
+                addOn:{
+                    milk:100,
+                    cream:125,
+                    latte:150
+                }
+            }
+        }
+        alert(`you have to choose the type from(Expresso,cappuccino,latte)`)
+        alert(` and also the add on which you want,in the form of array from (milk,cream,latte) ex: objectName.orderCoffee("expresso",["milk","cream","latte"])`)
+        console.log(`you have to choose the type and also the add on which you want in the form of array`);
+        console.log(` and also the add on which you want,in the form of array from (milk,cream,latte) ex: objectName.orderCoffee("expresso",["milk","cream","latte"])`)
+    }
+    //this is the order coffe wwhere we have to write the order type and also the addon it the form of the array 
+    orderCoffee(type,add){
+        const product =this.products[type];
+        let totaltPrice=product.basePrice;
+
+        add.forEach((item)=>{
+            totaltPrice +=product.addOn[item];
+        });
+        return totaltPrice;
+    }
+    typeofcoffee(type){
+        return this.type=type;
+    }
+}
+
+
+
+const coffeeorder =new CoffeeShop();
+
+console.log("price coffee you order " + coffeeorder.orderCoffee("expresso",["milk","cream","latte"]))
